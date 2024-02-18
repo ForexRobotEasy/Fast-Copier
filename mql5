@@ -1,0 +1,100 @@
+mql5
+//+------------------------------------------------------------------+
+//|                                                 Fast Copier.mq5 |
+//|                      Copyright 2021, Forex Robot Easy Team        |
+//|                         https://www.forexroboteasy.com             |
+//+------------------------------------------------------------------+
+
+// Global variables
+int CopySpeed = 1; // Copy speed in milliseconds
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+    // Initialize the trade copier software
+    if (!InitializeCopier())
+    {
+        Print('Failed to initialize the trade copier software.');
+        return INIT_FAILED;
+    }
+
+    // Set the copy speed
+    if (!SetCopySpeed(CopySpeed))
+    {
+        Print('Failed to set the copy speed.');
+        return INIT_FAILED;
+    }
+
+    // Print initialization success message
+    Print('Fast Copier initialized successfully.');
+
+    return INIT_SUCCEEDED;
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+    // Check for new trades to copy
+    if (CheckTradesToCopy())
+    {
+        // Copy trades
+        if (!CopyTrades())
+        {
+            Print('Failed to copy trades.');
+        }
+    }
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+bool InitializeCopier()
+{
+    // TODO: Implement initialization logic
+
+    return true; // Return true if initialization is successful, false otherwise
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+bool SetCopySpeed(int speed)
+{
+    // TODO: Implement setting copy speed logic
+
+    return true; // Return true if copy speed is set successfully, false otherwise
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+bool CheckTradesToCopy()
+{
+    // TODO: Implement logic to check for new trades to copy
+
+    return true; // Return true if there are trades to copy, false otherwise
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+bool CopyTrades()
+{
+    // TODO: Implement logic to copy trades
+
+    return true; // Return true if trades are copied successfully, false otherwise
+}
+
+//+------------------------------------------------------------------+
+//|                                                                  |
+//+------------------------------------------------------------------+
+void OnDeinit(const int reason)
+{
+    // TODO: Implement deinitialization logic
+
+    Print('Fast Copier deinitialized.');
+}
